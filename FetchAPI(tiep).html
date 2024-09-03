@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FETCH API 2</title>
+</head>
+<body>
+    <div class="product-list" id="products">
+        <div class="product-item">
+            <img src="" alt="" class="image-item">
+            <p class="detail-item"></p>
+        </div>
+        <div class="product-item">
+            <img src="" alt="" class="image-item">
+            <p class="detail-item"></p>
+        </div>
+        <div class="product-item">
+            <img src="" alt="" class="image-item">
+            <p class="detail-item"></p>
+        </div>
+        <div class="product-item">
+            <img src="" alt="" class="image-item">
+            <p class="detail-item"></p>
+        </div>
+    </div>
+    <style>
+       .product-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            
+        }
+
+        .product-item {
+            background-color: rgb(224, 216, 239);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid black;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        
+        .product-item .image-item {
+            width: 50%;
+            height: auto;
+            
+        }
+
+        .product-item .detail-item {
+            font-size: 14px;
+            margin-top: 5px;
+            text-align: center;
+        }
+    </style>
+    <script>
+
+
+        // toi uu hoa
+        const fetchAPI = (url) =>{
+            const result = fetch(url)
+            .then(response => response.json())
+            .then(data =>{
+                return data;
+            });
+            return result;
+        }
+
+
+       
+        fetchAPI("http://localhost:3000/products")
+            .then(data => {
+                let htmls = "";
+                data.forEach(item => {
+                    htmls += `
+                        <div class="product-item">
+                            <img src="${item.thumbnail}" alt="${item.title}" class="image-item">
+                            <p class="detail-item">${item.title}</p>
+                        </div>
+                    `;
+                });
+                const divProducts = document.querySelector("#products");
+                divProducts.innerHTML = htmls;
+            });
+
+        // fetchAPI("https://dummyjson.com/products")
+        // .then(data=>{
+        //     let htmls = "";
+        //     data.products.forEach(item=>{
+        //         htmls+= `
+        //         <div class="product-item">
+        //       <img src="${item.thumbnail}" alt="" class="image-item">
+        //          <p class="detail-item">${item.title}</p>
+        //       </div>
+        //         `;
+        //     })
+        //     const divProductItem = document.querySelector(".product-item");
+        //     divProductItem.innerHTML = htmls;
+        // })
+
+
+
+
+
+        
+
+        
+        // fetchAPI("https://dummyjson.com/products")
+        // .then(data=> console.log(data))
+        
+
+        // fetch("https://dummyjson.com/products")
+        // .then(r => r.json())
+        // .then(data =>{
+           
+        //     let htmls = "";
+
+        //     data.products.forEach(item => {
+        //         htmls += `
+        //             <div class ="product-item">
+        //                 <img src="${item.thumbnail}" alt="${item.title}" />
+        //                 <h3> ${item.title} </h3>
+        //                 <p> ${item.price} </p>
+        //         `;
+        //     })
+        //     const divProducts = document.querySelector("#products");
+        //     divProducts.innerHTML = htmls;
+            
+        // })
+
+    </script>
+</body>
+</html>
