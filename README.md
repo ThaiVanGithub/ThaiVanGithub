@@ -1,0 +1,3 @@
+- 👋 Hi, I’m @ThaiVanGithub
+- i'm new here, this is the first time i use github cuz my code didn't run althougt i fixed my code the same like the video i watch, i don't know it about wrong set up for JSON or Database file, like i said, i'm really new here so pls help, thanks.
+- chào mấy anh ạ, em lần đầu dùng github, lí do dùng là vì code em không chạy database lỗi json hay sao đấy mà dùng localhost3000/products thì ra nhưng localhost/products/1 thì không ra id sản phẩm 1, mong các anh giúp, em xin cảm ơn
